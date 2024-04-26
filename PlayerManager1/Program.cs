@@ -49,6 +49,25 @@ namespace PlayerManager1
                 Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
             }
         }
+        static void ListPlayersWithScoreGreaterThan(List<Player> players)
+        {
+            Console.Write("Digite o valor do Score mínimo: ");
+            int minScore = Convert.ToInt32(Console.ReadLine());
+
+            IEnumerable<Player> playersWithScoreGreaterThan = GetPlayersWithScoreGreaterThan(players, minScore);
+
+            Console.WriteLine($"\nJogadores com Score maior que {minScore}:");
+            foreach (var player in playersWithScoreGreaterThan)
+            {
+                Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
+            }
+        }
+
+        static IEnumerable<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
+        {
+            return players.Where(player => player.Score > minScore);
+        }
+
 
 
     }
