@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlayerManager2
+namespace PlayerManager3
 {
     class Program
     {
@@ -56,13 +56,17 @@ namespace PlayerManager2
 
             players.Add(new Player(name, score));
             Console.WriteLine("Jogador adicionado!");
-        }
+        }        
         static void ListAllPlayers(List<Player> players)
         {
+            players.Sort();
+
             Console.WriteLine("\nLista de todos os jogadores:");
             foreach (var player in players)
             {
-                Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
+                string playerName = player.Name;
+                int playerScore = player.Score;
+                Console.WriteLine($"Nome: {playerName}, Score: {playerScore}");
             }
         }
         static void ListPlayersWithScoreGreaterThan(List<Player> players)
@@ -70,14 +74,19 @@ namespace PlayerManager2
             Console.Write("Digite o valor do Score mínimo: ");
             int minScore = Convert.ToInt32(Console.ReadLine());
 
-            IEnumerable<Player> playersWithScoreGreaterThan = GetPlayersWithScoreGreaterThan(players, minScore);
+            List<Player> playersWithScoreGreaterThan = GetPlayersWithScoreGreaterThan(players, minScore);
+
+            playersWithScoreGreaterThan.Sort();
 
             Console.WriteLine($"\nJogadores com Score maior que {minScore}:");
             foreach (var player in playersWithScoreGreaterThan)
             {
-                Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
+                string playerName = player.Name;
+                int playerScore = player.Score;
+                Console.WriteLine($"Nome: {playerName}, Score: {playerScore}");
             }
         }
+
         static IEnumerable<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
         {
             foreach (var player in players)
