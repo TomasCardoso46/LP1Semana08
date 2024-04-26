@@ -78,11 +78,17 @@ namespace PlayerManager2
                 Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
             }
         }
-
         static IEnumerable<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
         {
-            return players.Where(player => player.Score > minScore);
+            foreach (var player in players)
+            {
+                if (player.Score > minScore)
+                {
+                    yield return player;
+                }
+            }
         }
+
 
 
 
