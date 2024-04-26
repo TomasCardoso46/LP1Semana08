@@ -41,6 +41,15 @@ namespace PlayerManager1
             players.Add(new Player(name, score));
             Console.WriteLine("Jogador adicionado!");
         }
+        static void ListAllPlayers(List<Player> players)
+        {
+            Console.WriteLine("\nLista de todos os jogadores:");
+            foreach (var player in players)
+            {
+                Console.WriteLine($"Nome: {player.Name}, Score: {player.Score}");
+            }
+        }
+
 
     }
 }
