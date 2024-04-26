@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlayerManager3
+namespace PlayerManager4
 {
     class Program
     {
@@ -62,7 +62,7 @@ namespace PlayerManager3
             players.Sort();
 
             Console.WriteLine("\nLista de todos os jogadores:");
-            foreach (var player in players)
+            foreach (Player player in players)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
@@ -75,11 +75,34 @@ namespace PlayerManager3
             int minScore = Convert.ToInt32(Console.ReadLine());
 
             List<Player> playersWithScoreGreaterThan = GetPlayersWithScoreGreaterThan(players, minScore);
-
             playersWithScoreGreaterThan.Sort();
 
             Console.WriteLine($"\nJogadores com Score maior que {minScore}:");
-            foreach (var player in playersWithScoreGreaterThan)
+            foreach (Player player in playersWithScoreGreaterThan)
+            {
+                string playerName = player.Name;
+                int playerScore = player.Score;
+                Console.WriteLine($"Nome: {playerName}, Score: {playerScore}");
+            }
+        }
+        static void ListPlayersByNameAscending(List<Player> players)
+        {
+            players.Sort(new CompareByName(true));
+
+            Console.WriteLine("\nLista de jogadores por nome (ascendente):");
+            foreach (Player player in players)
+            {
+                string playerName = player.Name;
+                int playerScore = player.Score;
+                Console.WriteLine($"Nome: {playerName}, Score: {playerScore}");
+            }
+        }
+        static void ListPlayersByNameDescending(List<Player> players)
+        {
+            players.Sort(new CompareByName(false));
+
+            Console.WriteLine("\nLista de jogadores por nome (descendente):");
+            foreach (Player player in players)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
