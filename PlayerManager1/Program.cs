@@ -31,5 +31,16 @@ namespace PlayerManager1
                 }
             }
         }
+        static void InsertPlayer(List<Player> players)
+        {
+            Console.Write("Nome do jogador: ");
+            string name = Console.ReadLine();
+            Console.Write("Pontuaçao do jogador: ");
+            int score = Convert.ToInt32(Console.ReadLine());
+
+            players.Add(new Player(name, score));
+            Console.WriteLine("Jogador adicionado!");
+        }
+
     }
 }
