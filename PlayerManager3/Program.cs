@@ -86,17 +86,19 @@ namespace PlayerManager3
                 Console.WriteLine($"Nome: {playerName}, Score: {playerScore}");
             }
         }
-
-        static IEnumerable<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
+        static List<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
         {
-            foreach (var player in players)
+            List<Player> filteredPlayers = new List<Player>();
+            foreach (Player player in players)
             {
                 if (player.Score > minScore)
                 {
-                    yield return player;
+                    filteredPlayers.Add(player);
                 }
             }
+            return filteredPlayers;
         }
+
 
 
 
