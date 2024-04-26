@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlayerManager1
 {
@@ -27,8 +28,23 @@ namespace PlayerManager1
 
                 switch (choice)
                 {
-
+                    case "1":
+                        InsertPlayer(players);
+                        break;
+                    case "2":
+                        ListAllPlayers(players);
+                        break;
+                    case "3":
+                        ListPlayersWithScoreGreaterThan(players);
+                        break;
+                    case "4":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
                 }
+
             }
         }
         static void InsertPlayer(List<Player> players)
