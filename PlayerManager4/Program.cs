@@ -62,7 +62,7 @@ namespace PlayerManager4
             players.Sort();
 
             Console.WriteLine("\nLista de todos os jogadores:");
-            foreach (Player player in players)
+            foreach (var player in players)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
@@ -78,7 +78,7 @@ namespace PlayerManager4
             playersWithScoreGreaterThan.Sort();
 
             Console.WriteLine($"\nJogadores com Score maior que {minScore}:");
-            foreach (Player player in playersWithScoreGreaterThan)
+            foreach (var player in playersWithScoreGreaterThan)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
@@ -90,7 +90,7 @@ namespace PlayerManager4
             players.Sort(new CompareByName(true));
 
             Console.WriteLine("\nLista de jogadores por nome (ascendente):");
-            foreach (Player player in players)
+            foreach (var player in players)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
@@ -102,7 +102,7 @@ namespace PlayerManager4
             players.Sort(new CompareByName(false));
 
             Console.WriteLine("\nLista de jogadores por nome (descendente):");
-            foreach (Player player in players)
+            foreach (var player in players)
             {
                 string playerName = player.Name;
                 int playerScore = player.Score;
@@ -112,7 +112,7 @@ namespace PlayerManager4
         static List<Player> GetPlayersWithScoreGreaterThan(List<Player> players, int minScore)
         {
             List<Player> filteredPlayers = new List<Player>();
-            foreach (Player player in players)
+            foreach (var player in players)
             {
                 if (player.Score > minScore)
                 {
