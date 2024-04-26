@@ -1,6 +1,6 @@
 ﻿namespace AnimalKingdom
 {
-    public class Bat : Animal
+    public class Bat : Animal, ICanFly, IMammal
     {
         public int NumberOfNipples { get; } = 2;
         public int NumberOfWings { get; } = 2;
